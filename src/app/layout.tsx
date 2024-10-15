@@ -8,7 +8,11 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "devstore ignite",
+  title: {
+    template: "%s | DevStore Ignite ",
+    default: "DevStore Ignite",
+  },
+
   description: "DevStore Ignite",
 };
 
