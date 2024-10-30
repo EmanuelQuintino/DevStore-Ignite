@@ -28,6 +28,14 @@ async function getProduct(slug: string): Promise<Product> {
   return product;
 }
 
+export async function generateStaticParams() {
+  const response = await api("/products/featured");
+  const products: Product[] = await response.json();
+  return products.map((product) => {
+    return { slug: product.slug };
+  });
+}
+
 export default async function ProductPage({ params }: ProductProps) {
   const product = await getProduct(params.slug);
 
